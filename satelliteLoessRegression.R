@@ -1,4 +1,4 @@
-#R SCRIPT TO VISUALIZE POINTS AND LOESS LINE ON 15 YEARS OF MODIS SATELLITE LEAF AREA INDEX DATA OVER DAY OF YEAR
+#R SCRIPT TO VISUALIZE POINTS AND LOESS LINE ON MODIS SATELLITE LEAF AREA INDEX DATA OVER DAY OF YEAR
 #AUTHORED BY SEAN M HENDRYX
 require(graphics)
 library(lattice)
@@ -21,7 +21,7 @@ statistics_LST_Day$DOY <- DOY
 
 
 #VISUALIZE
-p <- ggplot(aes(statistics_LST_Day$DOY,statistics_LST_Day$mean, ylim(0,3.2)), data=statistics_LST_Day) 
+p <- ggplot(aes(statistics_LST_Day$DOY,statistics_LST_Day$LAImean, ylim(0,3.2)), data=statistics_LST_Day) 
 p <- p + geom_point(alpha=2/10, shape=21, fill="blue", colour="black", size=5)
 
 p<- p + labs(title = "Average LAI of the Santa Rita Mesquite Savannah from MODIS by DOY over 15 years") +
