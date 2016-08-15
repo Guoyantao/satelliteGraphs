@@ -20,7 +20,7 @@ x <- m1$mean
 y <- m1$meanNDVI
 #Here's the old linear model
 lmodel <- lm(y~x)
-rsquared2=summary(lm(m1$mean~m1$meanNDVI, m1))$r.squared
+rsquared2=summary(lm(m1$meanNDVI~m1$mean, m1))$r.squared
 
 
 
