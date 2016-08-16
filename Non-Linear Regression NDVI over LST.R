@@ -34,28 +34,18 @@ qplot(m1$mean, m1$meanNDVI,main="Mean NDVI over Mean Day Land Surface Temperatur
 #NDVI as mapped to by the log of Land Surface Temperature
 #First plot to get start values for nls:
 plot(x,y)
+#fit nonlinear model by mapping x to log space:
+fit <- lm(y~log(x))
+#look at result and statistics
+summary(fit)
+#extract coefficients only
+coef(fit)
 
-#Start by taking logs of both sides and fit a linear model, you get estimates of log(a) and b as the slope and intercept:
-#reference: http://stats.stackexchange.com/questions/183653/getting-the-right-starting-values-for-an-nls-model-in-r
-learnabstarts <- lm(log(y)~log(x))
-coef(learnabstarts)
 
-#now input start values:
-aStart<-exp(coef(learnabstarts)[1]) #param a is the y value when x=0
-#aStart <- exp(-9.617419)
-bStart <- coef(learnabstarts)[2] # #b is the decay rate
-#bStart <- 1.588217 
-nlmodel <- nls(formula = y ~ a*log(x), start = list(a = aStart, b = bStart))
-lines(x,predict(nlmodel),lty=2,col="red",lwd=3) #issue with predict: x and y different lengths
-#^ y has na's and therefore predict removes these values so yhat and x vectors are no longer same length
+#Plot with ggplot:
+p <- ggplot(data=m1, aes(x=mean, y=meanNDVI)) + geom_point() + stat_smooth(method="lm",formula=y~log(x),fill="red") + theme_bw()
 
-yHat <- coef(nlmodel)*log(x)
-#let's try this again:
-lines(x,yHat,lty=2,col="red",lwd=3)
-
-cor(m1$meanNDVI, predict(nlmodel))
-
-rsquared=summary(lm(m1$mean~m1$meanNDVI, m1))$r.squared
+p
 
 
 

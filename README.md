@@ -6,3 +6,6 @@ Example graphical outputs (click on link if graphic not visibile):
 ![Example with points colorized by year](LAI over DOY Colorized by Year.png "Example of graphical output from satelliteGraphs with points colorized by year:")
 
 ![Linear Model NDVI over LST Beaverton w r sq.png](Linear Model NDVI over LST Beaverton w r sq.png "Linear Model NDVI over LST Beaverton with r squared")
+
+Doesn't look very log-y:
+![natural log fit.png](natural log fit.png "natural log fit.png")
