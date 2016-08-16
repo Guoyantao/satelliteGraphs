@@ -7,5 +7,5 @@ Example graphical outputs (click on link if graphic not visibile):
 
 ![Linear Model NDVI over LST Beaverton w r sq.png](Linear Model NDVI over LST Beaverton w r sq.png "Linear Model NDVI over LST Beaverton with r squared")
 
-Doesn't look very log-y:
+Nonlinear least squares looks pretty linear:
 ![natural log fit.png](natural log fit.png "natural log fit.png")
